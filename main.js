@@ -57,9 +57,9 @@ app.get("/api", (req,res) => {
 });
 
 
-if(process.env.NODE_ENV === "production"){
+// if(process.env.NODE_ENV === "production"){
 
-}
+// }
 
 
 app.listen(PORT, () => console.log("server is runing"));
