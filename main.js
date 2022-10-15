@@ -7,9 +7,21 @@ require("dotenv").config();
 
 let PORT = process.env.PORT  || 4040
 
+
+
+
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+
+
 // use area
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions))
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // const connection = process.env.NODE_ENV == 'production' ? 'mongodb://127.0.0.1:27017/StackDB':process.env.DB_ATLAS_LINK;
+
 
 mongoose.connect(process.env.DB_ATLAS_LINK, () =>
   console.log("connected to StackDB")
@@ -36,6 +49,7 @@ app.use("/api/tx", TransactionRouter);
 
 
 //  const atlasDB = `mongodb+srv://pseudobrains:test12345@cluster0.xo0lnsr.mongodb.net/stackDB?retryWrites=true&w=majority`;
+
 
 // mongoose.connect(atlasDB,{
 //    useNewUrlParser:true,
