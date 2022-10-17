@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// const connection = process.env.NODE_ENV == 'production' ? 'mongodb://127.0.0.1:27017/StackDB':process.env.DB_ATLAS_LINK;
+const connection = process.env.NODE_ENV == 'production' ? process.env.DB_ATLAS_LINK : 'mongodb://127.0.0.1:27017/StackDB';
 
 mongoose.connect(process.env.DB_ATLAS_LINK, () =>
   console.log("connected to StackDB")
