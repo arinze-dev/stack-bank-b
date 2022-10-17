@@ -58,7 +58,7 @@ const transfercontroller = async (req, res) => {
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
-    return res.status(400).send({ msg: "internet error", err: error });
+    return res.status(400).send({ message: "internet error", err: error });
   }
 };
 
