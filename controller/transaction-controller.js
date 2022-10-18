@@ -49,8 +49,8 @@ const transfercontroller = async (req, res) => {
       await session.abortTransaction();
       //  return res.send(errorMsg)
       return res
-        .status(403)
-        .send({ message: "transaction feild", errMsg: errorMsg });
+        .status(400)
+        .send({ errMsg: errorMsg, message: "transaction feild" });
     }
     await session.commitTransaction();
     session.endSession();
